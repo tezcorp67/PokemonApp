@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block title%}
+ Pokemon
+{%endblock%}
+
+{%block content%}
+<form method="POST">
+    <div class="mb-3">
+      <label for="pokemon" class="form-label">Select Your Pokemon!</label>
+      <input type="text" class="form-control" id="pokemon" name="pokemon">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{%endblock%}
+
+
+
