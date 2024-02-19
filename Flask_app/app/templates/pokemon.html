@@ -4,6 +4,10 @@
  Pokemon
 {%endblock%}
 
+{%block styles%}
+<link rel="stylesheet" href="../../app/../static/pokemon.css">
+{%endblock%}
+
 {%block content%}
 {%include './includes/nav.html'%}
 <form method="POST">
@@ -13,6 +17,31 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+  {% if pokemon %}
+  <p>{{pokemon}}</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Ability</th>
+        <th scope="col">Experience</th>
+        <th scope="col">Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{pokemon['name']}}</td>
+        <td>{{pokemon['ability']}}</td>
+        <td>{{pokemon['base_exp']}}</td>
+        <td><img src="{{pokemon['sprite_url']}}"></td>
+      </tr>
+    </tbody>
+  </table>
+  {%endif%}
+
 
 {%endblock%}
 
