@@ -7,19 +7,33 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/signup">Sign Up</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('signup')}}">Sign Up</a>
           </li>
           <li class="nav-item">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/login">Login</a>
+            <a class="nav-link active" href="{{url_for('login')}}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/pokemon">Select Pokemon</a>
+            <a class="nav-link active" href="{{url_for('pokemon')}}">Select Pokemon</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}

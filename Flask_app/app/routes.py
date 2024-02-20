@@ -1,11 +1,11 @@
-from flask import request, render_template
+from flask import request, render_template, redirect, url_for, flash
 import requests
 from app import app
 from .forms import LoginForm, SignUpForm, PokeForm
 
 
 @app.route('/')
-def hello_thieves():
+def home():
     return render_template('home.html')
 
 @app.route('/user/<name>')
@@ -18,7 +18,8 @@ def login():
     if request.method == 'POST' and form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-        return f'{email} {password}'
+        flash('Login Successful', 'info')
+        return redirect(url_for('home'))
     else:
         return render_template('login.html', form=form)
 
@@ -29,7 +30,8 @@ def signup():
         username = form.username.data
         email = form.email.data
         password = form.password.data
-        return f'{username} {email} {password}'
+        flash('Success! Thank you for Signing Up', 'success')
+        return redirect(url_for('login'))
     else:
         return render_template('signup.html', form=form)
     
