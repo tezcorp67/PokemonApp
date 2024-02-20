@@ -1,6 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
@@ -15,6 +16,6 @@ class User(db.Model, UserMixin):
         self.email = email
         self.password = generate_password_hash(password)
 
-        def save(self):
-            db.session.add(self)
-            db.session.commit()
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
