@@ -5,11 +5,12 @@
 {%endblock%}
 
 {%block styles%}
-<link rel="'stylesheet" href="../../static/login.css">
+<link rel="stylesheet" href="../static/login.css">
 {%endblock%}
 
 {%block content%}
     {%include './includes/nav.html'%}
+    <div class="flex-container">
     <form method="POST">
       {{ form.hidden_tag()}}
       <div class="mb-3">
@@ -19,12 +20,12 @@
         <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
           {{ form.email(class="form-control", id="email")}}
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
           <label for="Password" class="form-label">Password</label>
           {{ form.password(class="form-control", id="password")}}
         </div>
-        {{ form.submit_btn }}
+        {{ form.submit_btn(class='btn my-btn')}}
       </form>
+    </div>
 {%endblock%}

@@ -1,0 +1,35 @@
+body{
+    background: #004FF9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #FFF94C, #004FF9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #FFF94C, #004FF9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+
+}
+
+.flex-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+} 
+
+form {
+    max-width: 350px;
+    width: 50%;
+    min-width:200px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10vh;
+    border-radius: 7.5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.my-btn {
+    color: white;
+    background-color: #004FF9;
+}
+
+.my-btn:hover {
+    background-color: #004ff9c5;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
