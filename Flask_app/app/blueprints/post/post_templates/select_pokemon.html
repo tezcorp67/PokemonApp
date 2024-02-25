@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
 {%block title%}
- View Pokemon
+ Select Pokemon
 {%endblock%}
 
 {%block styles%}
@@ -13,7 +13,7 @@
 <div class="flex-container">
 <form method="POST">
     <div class="mb-3">
-      <label for="pokemon" class="form-label"> View Pokemon!</label>
+      <label for="pokemon" class="form-label"> Select Your Pokemon!</label>
       <input type="text" class="form-control" id="pokemon" name="pokemon">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
@@ -28,9 +28,6 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Ability</th>
-        <th scope="col">Base HP</th>
-        <th scope="col">Base Attack</th>
-        <th scope="col">Base Defense</th>
         <th scope="col">Experience</th>
         <th scope="col">Photo</th>
       </tr>
@@ -40,9 +37,6 @@
         <th scope="row">1</th>
         <td>{{pokemon['name']}}</td>
         <td>{{pokemon['ability']}}</td>
-        <td>{{pokemon['base_hp']}}</td>
-        <td>{{pokemon['base_attack']}}</td>
-        <td>{{pokemon['base_defense']}}</td>
         <td>{{pokemon['base_exp']}}</td>
         <td><img src="{{pokemon['sprite_url']}}"></td>
       </tr>
@@ -52,6 +46,3 @@
 
 
 {%endblock%}
-
-
-
