@@ -24,11 +24,13 @@ login_manager.login_message_category = 'danger'
 from app.blueprints.auth import auth
 from app.blueprints.main import main
 from app.blueprints.post import post
+from app.blueprints.api.routes import api
 
 # register blueprint onto app
 app.register_blueprint(auth)
 app.register_blueprint(main)
 app.register_blueprint(post)
+app.register_blueprint(api)
 
 @login_manager.user_loader
 def load_user(user_id):
