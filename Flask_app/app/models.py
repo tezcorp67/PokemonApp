@@ -5,11 +5,19 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+user_post = db.Table('user_post',
+                     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
+                     db.Column('post_id', db.Integer, db.ForeignKey('post.id'))
+)
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
+    team = db.relationship('Post', secondary=user_post, backref='teams')
+    
+
 
     def __init__(self, username, email, password):
         self.username = username

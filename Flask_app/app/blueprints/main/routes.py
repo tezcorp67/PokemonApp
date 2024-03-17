@@ -4,13 +4,15 @@ import requests
 from . import main 
 from .forms import PokeForm
 
+
+
 @main.route('/')
 def home():
     return render_template('home.html')
 
-@main.route('/user/<name>')
-def user(name):
-    return f'Hello {name}'
+# @main.route('/user/<name>')
+# def user(name):
+#     return f'Hello {name}'
 
 def poke_dic(pokemons):
     pokemon_dictionary = []
@@ -40,3 +42,5 @@ def pokemon():
         return render_template('pokemon.html', pokemon=pokemon_go)
     else:
         return render_template('pokemon.html', form=form)
+    
+

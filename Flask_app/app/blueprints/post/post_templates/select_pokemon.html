@@ -11,12 +11,13 @@
 {%block content%}
 {%include './includes/nav.html'%}
 <div class="flex-container">
-<form method="POST">
+<form method="POST" action="{{ url_for('select_pokemon')}}">
+  {{ form.hidden_tag() }}
     <div class="mb-3">
       <label for="pokemon" class="form-label"> Select Your Pokemon!</label>
       <input type="text" class="form-control" id="pokemon" name="pokemon"> 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 </div>
 
@@ -39,6 +40,10 @@
         <td>{{pokemon['abilities']}}</td>
         <td>{{pokemon['base_exp']}}</td>
         <td><img src="{{pokemon['sprite_url']}}"></td>
+        <td>
+          <a href="{{url_for('post.add_team', user_id=current_user.id, pokemon_id=pokemon['id']) }}" class="btn btn-primary">Add</a>
+          <a href="{{url_for('post.remove_team', user_id=current_user.id, pokemon_id=pokemon['id']) }}" class="btn btn-primary">Remove</a>
+        </td>
       </tr>
     </tbody>
   </table>
