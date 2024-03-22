@@ -15,7 +15,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String, unique=True, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)
-    team = db.relationship('Post', secondary=user_post, backref='teams')
+    team = db.relationship('Post', secondary=user_post, backref='user', lazy="dynamic")
     
 
 
@@ -31,7 +31,7 @@ class User(db.Model, UserMixin):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    base_exp = db.Column(db.String, nullable=False)
+    base_experience = db.Column(db.String, nullable=False)
     base_hp = db.Column(db.String, nullable=False)
     base_attack = db.Column(db.String, nullable=False)
     base_defense = db.Column(db.String, nullable=False)
@@ -39,10 +39,10 @@ class Post(db.Model):
     sprite_url = db.Column(db.String, nullable=False)
     
 
-    def __init__(self, name, ability, base_exp, base_hp, base_attack, base_defense, sprite_url):
+    def __init__(self, name, ability, base_experience, base_hp, base_attack, base_defense, sprite_url):
         self.name = name 
         self.ability = ability
-        self.base_exp = base_exp
+        self.base_experience = base_experience
         self.base_hp = base_hp
         self.base_attack = base_attack
         self.base_defense = base_defense

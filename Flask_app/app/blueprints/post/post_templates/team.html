@@ -10,17 +10,7 @@
 
 {%block content%}
 {%include './includes/nav.html'%}
-<div class="flex-container">
-<form method="POST">
-    <div class="mb-3">
-      <label for="pokemon" class="form-label"> Select Your Pokemon!</label>
-      <input type="text" class="form-control" id="pokemon" name="pokemon"> 
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
-  </form>
-</div>
-
-  {% if pokemon %}
+  {% for pokemon in team %}
   
   <table class="table">
     <thead>
@@ -38,19 +28,15 @@
         <th scope="row">1</th>
         <td>{{pokemon['name']}}</td>
         <td>{{pokemon['ability']}}</td>
-        <td>{{pokemon['base_experience']}}</td>
+        <td>{{pokemon['base_exp']}}</td>
         <td><img src="{{pokemon['sprite_url']}}"></td>
         <td>
-          <a href="{{url_for('post.catch_pokemon', name=pokemon.name)}}" class="btn btn-primary">Catch</a>
+          <a href="{{url_for('post.remove_pokemon', name=pokemon.name)}}" class="btn btn-primary">Remove</a>
         </td>
       </tr>
     </tbody>
   </table>
-  {%endif%}
+  {%endfor%}
 
 
 {%endblock%}
-
-
-
-<!-- line 17 copy and paste  -->

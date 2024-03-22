@@ -33,6 +33,7 @@
         <th scope="col">Base Defense</th>
         <th scope="col">Experience</th>
         <th scope="col">Photo</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -45,6 +46,10 @@
         <td>{{pokemon['base_defense']}}</td>
         <td>{{pokemon['base_exp']}}</td>
         <td><img src="{{pokemon['sprite_url']}}"></td>
+        <td>
+          <a href="{{url_for('post.add_team', user_id=current_user.id, pokemon_id=pokemon['id']) }}" class="btn btn-primary">Add</a>
+          <a href="{{url_for('post.remove_team', user_id=current_user.id, pokemon_id=pokemon['id']) }}" class="btn btn-primary">Remove</a>
+        </td>
       </tr>
     </tbody>
   </table>
